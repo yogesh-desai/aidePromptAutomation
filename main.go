@@ -18,76 +18,10 @@ func main() {
 	payload := &bytes.Buffer{}
 	writer := multipart.NewWriter(payload)
 
-	min := 3
-	max := 10
+	min := 30
+	max := 32
 
 	questions := []string{
-		"Two Sum: Given an array of integers, return indices of the two numbers such that they add up to a specific target. Give me GoLang implementation for it.",
-		"Reverse Integer: Reverse digits of an integer. Give me GoLang implementation for it.",
-		"Palindrome Number: Determine whether an integer is a palindrome. Give me GoLang implementation for it.",
-		"Roman to Integer: Convert a Roman numeral to an integer. Give me GoLang implementation for it.",
-		"Longest Common Prefix: Find the longest common prefix string amongst an array of strings. Give me GoLang implementation for it.",
-		"Valid Parentheses: Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Give me GoLang implementation for it.",
-		"Merge Two Sorted Lists: Merge two sorted linked lists and return it as a new sorted list. Give me GoLang implementation for it.",
-		"Remove Duplicates from Sorted Array: Given a sorted array, remove the duplicates in-place such that each element appears only once and return the new length. Give me GoLang implementation for it.",
-		"Remove Element: Given an array nums and a value val, remove all instances of that value in-place and return the new length. Give me GoLang implementation for it.",
-		"Implement strStr(): Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Give me GoLang implementation for it.",
-		"Search Insert Position: Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. Give me GoLang implementation for it.",
-		"Count and Say: The count-and-say sequence is the sequence of integers with the first five terms as following: 1, 11, 21, 1211, 111221, ... Give me GoLang implementation for it.",
-		"Maximum Subarray: Find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Give me GoLang implementation for it.",
-		"Length of Last Word: Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string. Give me GoLang implementation for it.",
-		"Plus One: Given a non-empty array of digits representing a non-negative integer, plus one to the integer. Give me GoLang implementation for it.",
-		"Add Binary: Given two binary strings, return their sum (also a binary string). Give me GoLang implementation for it.",
-		"Climbing Stairs: You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? Give me GoLang implementation for it.",
-		"Sqrt(x): Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Give me GoLang implementation for it.",
-		"Merge Sorted Array: Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. Give me GoLang implementation for it.",
-		"Valid Palindrome: Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. Give me GoLang implementation for it.",
-		"Pascal's Triangle: Given a non-negative integer numRows, generate the first numRows of Pascal's triangle. Give me GoLang implementation for it.",
-		"Best Time to Buy and Sell Stock: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0. Give me GoLang implementation for it.",
-		"Valid Anagram: Given two strings s and t , write a function to determine if t is an anagram of s. Give me GoLang implementation for it.",
-		"Implement Queue using Stacks: Implement the following operations of a queue using stacks. Give me GoLang implementation for it.",
-		"Intersection of Two Arrays II: Given two arrays, write a function to compute their intersection. Give me GoLang implementation for it.",
-		"Fizz Buzz: Write a program that outputs the string representation of numbers from 1 to n. But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”. Give me GoLang implementation for it.",
-		"Single Number: Given a non-empty array of integers, every element appears twice except for one. Find that single one. Give me GoLang implementation for it.",
-		"Rotate Array: Given an array, rotate the array to the right by k steps, where k is non-negative. Give me GoLang implementation for it.",
-		"Reverse Linked List: Reverse a singly linked list. Give me GoLang implementation for it.",
-		"First Unique Character in a String: Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1. Give me GoLang implementation for it.",
-		"Move Zeroes: Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements. Give me GoLang implementation for it.",
-		"Majority Element: Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. Give me GoLang implementation for it.",
-		"Excel Sheet Column Number: Given a column title as appear in an Excel sheet, return its corresponding column number. Give me GoLang implementation for it.",
-		"Palindrome Linked List: Given a singly linked list, determine if it is a palindrome. Give me GoLang implementation for it.",
-		"Intersection of Two Linked Lists: Write a program to find the node at which the intersection of two singly linked lists begins. Give me GoLang implementation for it.",
-		"Two Sum II - Input array is sorted: Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. Give me GoLang implementation for it.",
-		"Valid Perfect Square: Given a positive integer num, write a function which returns True if num is a perfect square else False. Give me GoLang implementation for it.",
-		"Reverse String: Write a function that reverses a string. The input string is given as an array of characters char[]. Give me GoLang implementation for it.",
-		"Power of Three: Given an integer, write a function to determine if it is a power of three. Give me GoLang implementation for it.",
-		"Number of 1 Bits: Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight). Give me GoLang implementation for it.",
-		"Happy Number: Write an algorithm to determine if a number n is \"happy\". Give me GoLang implementation for it.",
-		"Count Primes: Count the number of prime numbers less than a non-negative number, n. Give me GoLang implementation for it.",
-		"Reverse Vowels of a String: Write a function that takes a string as input and reverse only the vowels of a string. Give me GoLang implementation for it.",
-		"Implement Stack using Queues: Implement the following operations of a stack using queues. Give me GoLang implementation for it.",
-		"Hamming Distance: The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Give me GoLang implementation for it.",
-		"Missing Number: Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array. Give me GoLang implementation for it.",
-		"Valid Perfect Square: Given a positive integer num, write a function which returns True if num is a perfect square else False. Give me GoLang implementation for it.",
-		"Fizz Buzz: Write a program that outputs the string representation of numbers from 1 to n. But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”. Give me GoLang implementation for it.",
-		"Reverse Linked List: Reverse a singly linked list. Give me GoLang implementation for it.",
-		"Move Zeroes: Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements. Give me GoLang implementation for it.",
-		"Maximum Depth of Binary Tree: Given a binary tree, find its maximum depth. Give me GoLang implementation for it.",
-		"Best Time to Buy and Sell Stock II: Say you have an array prices for which the ith element is the price of a given stock on day i. Give me GoLang implementation for it.",
-		"Convert Sorted Array to Binary Search Tree: Given an array where elements are sorted in ascending order, convert it to a height balanced BST. Give me GoLang implementation for it.",
-		"Reverse Bits: Reverse bits of a given 32 bits unsigned integer. Give me GoLang implementation for it.",
-		"Single Number: Given a non-empty array of integers, every element appears twice except for one. Find that single one. Give me GoLang implementation for it.",
-		"Maximum Subarray: Find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Give me GoLang implementation for it.",
-		"Count and Say: The count-and-say sequence is the sequence of integers with the first five terms as following: 1, 11, 21, 1211, 111221, ... Give me GoLang implementation for it.",
-		"Binary Tree Level Order Traversal: Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level). Give me GoLang implementation for it.",
-		"Symmetric Tree: Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center). Give me GoLang implementation for it.",
-		"Same Tree: Given two binary trees, write a function to check if they are the same or not. Give me GoLang implementation for it.",
-		"Maximum Depth of N-ary Tree: Given a n-ary tree, find its maximum depth. Give me GoLang implementation for it.",
-		"Minimum Depth of Binary Tree: Given a binary tree, find its minimum depth. Give me GoLang implementation for it.",
-		"Valid Parentheses: Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Give me GoLang implementation for it.",
-		"Merge Two Sorted Lists: Merge two sorted linked lists and return it as a new sorted list. Give me GoLang implementation for it.",
-		"Remove Duplicates from Sorted Array: Given a sorted array, remove the duplicates in-place such that each element appears only once and return the new length. Give me GoLang implementation for it.",
-		"Remove Element: Given an array nums and a value val, remove all instances of that value in-place and return the new length. Give me GoLang implementation for it.",
 		"Implement strStr(): Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Give me GoLang implementation for it.",
 		"Search Insert Position: Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. Give me GoLang implementation for it.",
 		"Count and Say: The count-and-say sequence is the sequence of integers with the first five terms as following: 1, 11, 21, 1211, 111221, ... Give me GoLang implementation for it.",
@@ -612,7 +546,7 @@ func main() {
 
 		fmt.Println("Done creating story.", string(body))
 		delay := rand.Intn(max-min) + min
-		fmt.Println("Sleeping for ", delay, " mins")
-		time.Sleep(time.Duration(delay) * time.Minute)
+		fmt.Println("Sleeping for ", delay, " seconds")
+		time.Sleep(time.Duration(delay) * time.Second)
 	}
 }
